@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Example from "./components/Nav";
+import { Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import AthleticBld from "./pages/AthleticBld";
+import StrengthBld from "./pages/StrengthBld";
+import Nutrition from "./pages/Nutrition"
+import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
+import SignOut from "./pages/SignOut";
+import Calendar from "./pages/Calendar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Example />
+      <Routes>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/athleticbld" element={<AthleticBld />} />
+        <Route path="/strengthbld" element={<StrengthBld />} />
+        <Route path="/nutrition" element={<Nutrition />} />
+        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/signout" element={<SignOut />} />
+
+
+      </Routes>
+    </>
   );
 }
 
