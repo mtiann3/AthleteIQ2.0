@@ -22,7 +22,7 @@ export default function Nav() {
   ]);
 
   const updateNavigation = useCallback(() => {
-    console.log("hello")
+    console.log("hello");
     setNavigation((prevNavigation) =>
       prevNavigation.map((item) => ({
         ...item,
@@ -54,13 +54,17 @@ export default function Nav() {
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
-                    <div className="flex-shrink-0">
+                    <a
+                      href={"/dashboard"}
+                      className={"block px-4 py-2 text-sm text-gray-700"}
+                    >
                       <img
-                        className="h-8 w-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                        alt="Your Company"
+                        className="h-10 w-10 rounded-full"
+                        src={"https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"}
+                        alt=""
                       />
-                    </div>
+                    </a>
+
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
                         {navigation.map((item) => (
@@ -83,15 +87,6 @@ export default function Nav() {
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-4 flex items-center md:ml-6">
-                      <button
-                        type="button"
-                        className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                      >
-                        <span className="absolute -inset-1.5" />
-                        <span className="sr-only">View notifications</span>
-                        <BellIcon className="h-6 w-6" aria-hidden="true" />
-                      </button>
-
                       {/* Profile dropdown */}
                       <Menu as="div" className="relative ml-3">
                         <div>
@@ -189,14 +184,6 @@ export default function Nav() {
                         {user.email}
                       </div>
                     </div>
-                    <button
-                      type="button"
-                      className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                    >
-                      <span className="absolute -inset-1.5" />
-                      <span className="sr-only">View notifications</span>
-                      <BellIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
                   </div>
                   <div className="mt-3 space-y-1 px-2">
                     {userNavigation.map((item) => (
@@ -215,12 +202,6 @@ export default function Nav() {
             </>
           )}
         </Disclosure>
-
-        <main>
-          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-            {/* Your content */}
-          </div>
-        </main>
       </div>
     </>
   );

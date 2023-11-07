@@ -2,7 +2,9 @@ import React from 'react'
 
 const SignOut = () => {
   return (
-    <div>SignOut</div>
+    <div>
+      **do sign out method that signs out user and goes back to google auth**
+    </div>
   )
 }
 

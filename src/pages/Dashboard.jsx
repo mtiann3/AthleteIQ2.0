@@ -10,9 +10,6 @@ const Dashboard = () => {
             </h1>
           </div>
         </header>
-        <div>
-          <p>Helo</p>
-        </div>
     </div>
   )
 }
