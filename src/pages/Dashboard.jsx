@@ -1,6 +1,9 @@
 import React from 'react'
+import { UserAuth } from '../context/AuthContext';
 
 const Dashboard = () => {
+  const { user } = UserAuth();
+
   return (
     <div>
       <header className="bg-white shadow">
@@ -8,6 +11,7 @@ const Dashboard = () => {
             <h1 className="text-left text-3xl font-bold tracking-tight text-gray-900">
               Dashboard
             </h1>
+            <p>Welcome, {user.email}</p>
           </div>
         </header>
     </div>
