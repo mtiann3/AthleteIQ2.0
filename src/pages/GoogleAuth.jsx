@@ -1,36 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { GoogleButton } from 'react-google-button';
-import { signInWithGoogle } from '../context/SignInGoogle'; // Import the signInWithGoogle function from signin.js
-import { UserAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { GoogleButton } from "react-google-button";
+import { UserAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
-const GoogleAuth = ({signIn}) => {
-  const { user } = UserAuth();
+const GoogleAuth = () => {
+  const { googleSignIn, user } = UserAuth();
   const navigate = useNavigate();
-  const [isSigningIn, setIsSigningIn] = useState(false);
+  const [googleButtonClicked, setGoogleButtonClicked] = useState(false);
 
   const handleGoogleSignIn = async () => {
-    setIsSigningIn(true);
     try {
-      await signInWithGoogle();
+      await googleSignIn();
+      setGoogleButtonClicked(true);
     } catch (error) {
       console.log(error);
-      setIsSigningIn(false);
-      
     }
   };
+useEffect(() => {
+  if (user && user.uid) {
+    navigate('/dashboard');
+  }
+}, [navigate, googleButtonClicked, user]);
 
-  useEffect(() => {
-    if (user && user.uid && isSigningIn) {
-      navigate('/dashboard');
-      signIn();
-    }
-  }, [user, navigate, isSigningIn, signIn]);
 
   return (
-    <div className='w-auto h-screen p-10  m-auto bg-[#3f4546]'>
-      <h1 className='text-center text-xl font-bold py-8'>Please sign in with Google to continue.</h1>
-      <div className='max-w-[240px] m-auto py-4'>
+    <div>
+      <h1 className="text-center text-3xl font-bold py-8">Sign in</h1>
+      <div className="max-w-[240px] m-auto py-4">
         <GoogleButton onClick={handleGoogleSignIn} />
       </div>
     </div>
