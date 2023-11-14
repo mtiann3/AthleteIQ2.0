@@ -1,11 +1,11 @@
-import { useContext, createContext, useEffect, useState } from 'react';
+import { useContext, createContext, useEffect, useState } from "react";
 import {
   GoogleAuthProvider,
   signInWithPopup,
   signInWithRedirect,
   signOut,
   onAuthStateChanged,
-} from 'firebase/auth';
+} from "firebase/auth";
 import { auth, db } from "../firebase";
 import {
   collection,
@@ -26,15 +26,15 @@ export const AuthContextProvider = ({ children }) => {
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
     // signInWithPopup(auth, provider);
-    signInWithPopup(auth, provider)
+    signInWithPopup(auth, provider);
   };
 
   const logOut = () => {
-      signOut(auth)
-  }
+    signOut(auth);
+  };
 
-  
   useEffect(() => {
+    console.log("read")
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
 
@@ -52,10 +52,8 @@ export const AuthContextProvider = ({ children }) => {
           const docRef = await setDoc(doc(db, "users", currentUser.uid), {
             name: currentUser.displayName,
             email: currentUser.email,
-            todos: [] // Initialize todos as an empty array
-
+            todos: [], // Initialize todos as an empty array
           });
-
 
           console.log("Document written with ID: ", docRef.id);
           console.log(currentUser.uid);
@@ -64,15 +62,13 @@ export const AuthContextProvider = ({ children }) => {
         }
         console.log("User", currentUser);
       } else {
-        console.log("User already exists")
+        console.log("User already exists");
       }
     });
     return () => {
       unsubscribe();
     };
   }, []);
-
-
 
   return (
     <AuthContext.Provider value={{ googleSignIn, logOut, user }}>

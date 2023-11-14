@@ -5,7 +5,7 @@ const AthleticBld = () => {
   const seriesData = [
     {
       name: 'Pounds',
-      data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
+      data: [10, 15, 20, 50, 1000, 70, 65, 100, 148],
     },
     // Add more series data if needed
   ];
