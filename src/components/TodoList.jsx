@@ -30,9 +30,7 @@ const TodoList = () => {
       console.error("Error fetching todos:", error);
     }
   };
-  
-  
-  
+
   const addTodo = async () => {
     try {
       const docRef = doc(db, "users", user.uid);
@@ -87,12 +85,11 @@ const TodoList = () => {
     }
   };
 
-//   fetchTodos();
-useEffect(() => {
+  //   fetchTodos();
+  useEffect(() => {
     // Run fetchTodos once when the component is mounted
     fetchTodos();
   }, []); // Empty dependency array ensures the effect runs only once
-
 
   return (
     <div>

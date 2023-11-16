@@ -1,6 +1,45 @@
 import React from 'react'
+import LineGraph from "../components/LineGraph";
 
 const StrengthBld = () => {
+  const seriesData = [
+    {
+      name: 'Pounds',
+      data: [10, 23, 20, 55, 60, 65, 100, 115],
+    },
+    // Add more series data if needed
+  ];
+
+  const optionsData = {
+    chart: {
+      height: 350,
+      type: 'line',
+      zoom: {
+        enabled: false,
+      },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    stroke: {
+      curve: 'straight',
+    },
+    title: {
+      text: "1 Rep Max Data (Data is calculated based on lift entries entered throughout that specific month, and adjusted to an estimated 1 rep max)",
+      align: 'left',
+    },
+    
+    grid: {
+      row: {
+        colors: ['#f3f3f3', '#ffffff'],
+        opacity: 0.5,
+      },
+    },
+    xaxis: {
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+    },
+  };
+
   return (
     <div>
       <header className="bg-white shadow">
@@ -10,8 +49,9 @@ const StrengthBld = () => {
           </h1>
         </div>
       </header>
+      <LineGraph series={seriesData} options={optionsData} />
     </div>
-  )
+  );
 }
 
 export default StrengthBld
