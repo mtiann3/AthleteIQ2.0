@@ -4,7 +4,6 @@ import TodoList from "../components/TodoList";
 import TodoPercentageBar from "../components/TodoPercentageBar";
 
 const Dashboard = () => {
-  console.log("read");
   const { logout, user } = UserAuth();
 
   return (
