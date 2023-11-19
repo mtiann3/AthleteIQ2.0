@@ -14,6 +14,7 @@ import Nav from "./components/Nav";
 import GoogleAuth from "./pages/GoogleAuth";
 import { AuthContextProvider } from "./context/AuthContext";
 import WorkoutPlan from "./pages/WorkoutPlan";
+import ExerciseLog from "./pages/ExerciseLog";
 
 const App = () => {
   return (
@@ -38,6 +39,8 @@ const App = () => {
           />
           <Route path="/settings" element={<Settings />} />
           <Route path="/signout" element={<SignOut />} />
+          <Route path="/exerciselog" element={<ExerciseLog />} />
+
         </Routes>
       </AuthContextProvider>
     </div>
