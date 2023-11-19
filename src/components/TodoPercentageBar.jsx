@@ -22,7 +22,7 @@ const TodoPercentageBar = ({ todos }) => {
         <div className="h-8 bg-blue-500" style={barStyle} />
       </div>
       <div className="text-center py-2 font-bold text-lg">
-        {`Completion: ${completionPercentage.toFixed(2)}%`}
+        {`Progress: ${completionPercentage.toFixed(2)}%`}
       </div>
     </div>
   );
