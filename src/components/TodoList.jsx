@@ -7,17 +7,16 @@ import TodoPercentageBar from "./TodoPercentageBar";
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
+  const [estimatedTime, setEstimatedTime] = useState("");
+  const [name, setName] = useState("");
   const { user } = UserAuth();
 
   const fetchTodos = async () => {
-    console.log("read")
     try {
       const docRef = doc(db, "users", user.uid);
-      const docSnap = await getDoc(docRef);  
-      // Check if docSnap and its data property exist
+      const docSnap = await getDoc(docRef);
       if (docSnap && docSnap.data()) {
-        const userTodos = docSnap.data().todos;  
-        // Check if userTodos is an array
+        const userTodos = docSnap.data().todos;
         if (Array.isArray(userTodos)) {
           setTodos(userTodos);
         } else {
@@ -35,21 +34,30 @@ const TodoList = () => {
     try {
       const docRef = doc(db, "users", user.uid);
       const docSnap = await getDoc(docRef);
-      const userFoodArr = docSnap.data().todos;
+      const userTodos = docSnap.data().todos;
 
-      let arrTemp = userFoodArr ? [...userFoodArr] : [];
-      arrTemp.push({
-        id: new Date().getTime(), // Generate a unique ID (you can use a better method)
-        text: input,
-        isCompleted: false,
-      });
+      let todosArray = userTodos ? [...userTodos] : [];
 
-      await updateDoc(docRef, {
-        todos: arrTemp,
-      });
+      if (name && estimatedTime) {
+        todosArray.push({
+          id: new Date().getTime(),
+          name: name,
+          text: input,
+          estimatedTime: estimatedTime,
+          isCompleted: false,
+        });
 
-      setInput(""); // Clear the input field after adding a todo
-      await fetchTodos(); // Fetch todos after adding a new one
+        await updateDoc(docRef, {
+          todos: todosArray,
+        });
+
+        setInput("");
+        setEstimatedTime("");
+        setName("");
+        await fetchTodos();
+      } else {
+        console.error("Name and Estimated Time are required.");
+      }
     } catch (e) {
       console.log("Error updating user: ", e);
     }
@@ -85,11 +93,9 @@ const TodoList = () => {
     }
   };
 
-  //   fetchTodos();
   useEffect(() => {
-    // Run fetchTodos once when the component is mounted
     fetchTodos();
-  }, []); // Empty dependency array ensures the effect runs only once
+  }, []);
 
   return (
     <div>
@@ -98,10 +104,24 @@ const TodoList = () => {
       <div className="max-w-md mx-auto p-4 bg-gray-100 rounded-lg justify-center">
         <input
           type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="border border-gray-400 w-full p-2 mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          placeholder="Name"
+        />
+        <input
+          type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           className="border border-gray-400 w-full p-2 mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          placeholder="Add a new todo..."
+          placeholder="Description"
+        />
+        <input
+          type="text"
+          value={estimatedTime}
+          onChange={(e) => setEstimatedTime(e.target.value)}
+          className="border border-gray-400 w-full p-2 mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          placeholder="Estimated Time (hours)"
         />
         <button
           onClick={addTodo}
@@ -126,7 +146,8 @@ const TodoList = () => {
                   todo.isCompleted ? "line-through ml-3 text-gray-500" : "ml-3"
                 }
               >
-                {todo.text}
+                {todo.name} - {todo.text} (Estimated Time: {todo.estimatedTime}{" "}
+                hours)
               </span>
               <button
                 onClick={() => handleDelete(todo.id)}

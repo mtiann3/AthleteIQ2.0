@@ -15,6 +15,8 @@ import GoogleAuth from "./pages/GoogleAuth";
 import { AuthContextProvider } from "./context/AuthContext";
 import WorkoutPlan from "./pages/WorkoutPlan";
 import ExerciseLog from "./pages/ExerciseLog";
+import Homework from "./pages/Homework";
+import Chores from "./pages/Chores";
 
 const App = () => {
   return (
@@ -40,6 +42,8 @@ const App = () => {
           <Route path="/settings" element={<Settings />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/exerciselog" element={<ExerciseLog />} />
+          <Route path="/homework" element={<Homework />} />
+          <Route path="/chores" element={<Chores />} />
 
         </Routes>
       </AuthContextProvider>

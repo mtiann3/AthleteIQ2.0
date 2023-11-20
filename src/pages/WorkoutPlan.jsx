@@ -3,7 +3,7 @@ import WeeklyCalendar from "../components/WeeklyCalendar";
 
 const WorkoutPlan = () => {
   return (
-    <div className="flex flex-col items-center">
+    <div className="items-center">
       <header className="bg-blue-200 shadow w-full">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <h1 className="text-left text-3xl font-bold tracking-tight text-gray-900">
@@ -16,10 +16,10 @@ const WorkoutPlan = () => {
         plan and adjust each exercise based on your progress.
       </p>
 
-      <div>
+      <div className="">
         <WeeklyCalendar />
       </div>
-      <div className="pb-6 flex items-center">
+      <div className="pb-6 flex flex-col   items-center">
         <button className="bg-red-900 text-white hover:bg-blue-400 font-bold py-2 px-4 rounded items-center">
           Save
         </button>
