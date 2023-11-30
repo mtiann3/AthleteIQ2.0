@@ -11,6 +11,7 @@ const Task = ({ taskName }) => {
   };
 
   const percentageCompleted = completed ? 100 : 0;
+
   const progressBarWidth = `w-${percentageCompleted}`;
   const taskNameLowercase = taskName.toLowerCase();
 

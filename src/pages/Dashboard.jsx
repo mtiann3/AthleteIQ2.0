@@ -108,7 +108,7 @@ const Dashboard = () => {
         <Task taskName={"Sleep"} />
         <Task taskName={"Water"} />
         <Task taskName={"Chores"} />
-        <Task taskName={""} />
+        <Task taskName={"Job"} />
         <Task taskName={""} />
         <Task taskName={""} />
         <Task taskName={""} />

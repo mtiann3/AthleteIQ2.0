@@ -17,6 +17,7 @@ import WorkoutPlan from "./pages/WorkoutPlan";
 import ExerciseLog from "./pages/ExerciseLog";
 import Homework from "./pages/Homework";
 import Chores from "./pages/Chores";
+import Water from "./pages/Water";
 
 const App = () => {
   return (
@@ -44,7 +45,7 @@ const App = () => {
           <Route path="/exerciselog" element={<ExerciseLog />} />
           <Route path="/homework" element={<Homework />} />
           <Route path="/chores" element={<Chores />} />
-
+          <Route path="/water" element={<Water />} />
         </Routes>
       </AuthContextProvider>
     </div>
