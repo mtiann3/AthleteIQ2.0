@@ -1,5 +1,3 @@
-// when you click on the complete button it will take you to the route of the taskname.
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -36,7 +34,8 @@ const Task = ({ taskName }) => {
         {!completed && (
           <Link
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-            to={`/${taskNameLowercase}`}          >
+            to={`/${taskNameLowercase}`}
+          >
             Complete
           </Link>
         )}

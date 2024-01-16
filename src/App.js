@@ -18,6 +18,8 @@ import ExerciseLog from "./pages/ExerciseLog";
 import Homework from "./pages/Homework";
 import Chores from "./pages/Chores";
 import Water from "./pages/Water";
+import JournalEntry from "./pages/JournalEntry";
+import ReadingLog from "./pages/ReadingLog";
 
 const App = () => {
   return (
@@ -46,6 +48,9 @@ const App = () => {
           <Route path="/homework" element={<Homework />} />
           <Route path="/chores" element={<Chores />} />
           <Route path="/water" element={<Water />} />
+          <Route path="/journal entry" element={<JournalEntry />} />
+          <Route path="/reading" element={<ReadingLog />} />
+
         </Routes>
       </AuthContextProvider>
     </div>

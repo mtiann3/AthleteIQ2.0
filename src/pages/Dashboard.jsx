@@ -109,10 +109,10 @@ const Dashboard = () => {
         <Task taskName={"Water"} />
         <Task taskName={"Chores"} />
         <Task taskName={"Job"} />
-        <Task taskName={""} />
-        <Task taskName={""} />
-        <Task taskName={""} />
-        <Task taskName={"Meditation"} />
+        <Task taskName={"Journal Entry"} />
+        <Task taskName={"Passion Work"} />
+        <Task taskName={"Reading"} />
+        <Task taskName={"Mindfulness Activity"} />
       </div>
     </div>
   );
