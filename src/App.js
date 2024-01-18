@@ -20,6 +20,7 @@ import Chores from "./pages/Chores";
 import Water from "./pages/Water";
 import JournalEntry from "./pages/JournalEntry";
 import ReadingLog from "./pages/ReadingLog";
+import StudyLog from "./pages/StudyLog";
 
 const App = () => {
   return (
@@ -50,7 +51,7 @@ const App = () => {
           <Route path="/water" element={<Water />} />
           <Route path="/journal entry" element={<JournalEntry />} />
           <Route path="/reading" element={<ReadingLog />} />
-
+          <Route path="/study" element={<StudyLog />} />
         </Routes>
       </AuthContextProvider>
     </div>
