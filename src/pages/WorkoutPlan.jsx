@@ -4,16 +4,16 @@ import WeeklyCalendar from "../components/WeeklyCalendar";
 const WorkoutPlan = () => {
   return (
     <div className="items-center">
-      <header className="bg-blue-200 shadow w-full">
+       <header className="bg-blue-100 shadow">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <h1 className="text-left text-3xl font-bold tracking-tight text-gray-900">
-            Weekly Workout Plan
+            Weekly Workout Program
           </h1>
         </div>
       </header>
       <p>
-        Every sunday (rest day) be sure to update your upcoming weeks workout
-        plan and adjust each exercise based on your progress.
+        Every sunday be sure to update your upcoming weeks workout
+        plan and adjust each exercise based on your progress if needed.
       </p>
 
       <div className="">

@@ -24,10 +24,7 @@ const StrengthBld = () => {
     stroke: {
       curve: 'straight',
     },
-    title: {
-      text: "1 Rep Max Data (Data is calculated based on lift entries entered throughout that specific month, and adjusted to an estimated 1 rep max)",
-      align: 'left',
-    },
+    
     
     grid: {
       row: {
@@ -42,10 +39,10 @@ const StrengthBld = () => {
 
   return (
     <div>
-      <header className="bg-white shadow">
+      <header className="bg-blue-100 shadow">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <h1 className="text-left text-3xl font-bold tracking-tight text-gray-900">
-            Strength Building
+            Strength Growth
           </h1>
         </div>
       </header>

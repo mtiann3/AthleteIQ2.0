@@ -35,10 +35,7 @@ const AthleticBld = () => {
     stroke: {
       curve: 'straight',
     },
-    title: {
-      text: "1 Rep Max Data (Data is calculated based on lift entries entered throughout that specific month, and adjusted to an estimated 1 rep max)",
-      align: 'left',
-    },
+   
     
     grid: {
       row: {

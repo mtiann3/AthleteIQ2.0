@@ -60,7 +60,7 @@ const Dashboard = () => {
           <h1 className="text-left text-3xl font-bold tracking-tight text-gray-900">
             Dashboard
           </h1>
-          <p>Welcome, {user.email}</p>
+          <p>Welcome, {user.displayName}</p>
         </div>
       </header>
       <div className="text-center p-3 text-3xl font-bold tracking-tight text-gray-900">
@@ -110,7 +110,7 @@ const Dashboard = () => {
         <Task taskName={"Chores"} />
         <Task taskName={"Job"} />
         <Task taskName={"Journal Entry"} />
-        <Task taskName={"Passion Work"} />
+        <Task taskName={""} />
         <Task taskName={"Reading"} />
         <Task taskName={"Mindfulness Activity"} />
       </div>

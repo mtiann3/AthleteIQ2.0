@@ -116,6 +116,17 @@ const Nav = () => {
                     Settings
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/sharedata"
+                    className={`block px-4 py-2 font-bold shadow-lg  z-40 bg-blue-950 hover:bg-blue-900 "  ${
+                      location.pathname === "/sharedata" && "text-red-900"
+                    }`}
+                    onClick={toggleDropdown}
+                  >
+                    Share Data
+                  </Link>
+                </li>
               </ul>
             </li>
             {/* End Dropdown */}

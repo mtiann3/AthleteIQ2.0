@@ -21,6 +21,7 @@ import Water from "./pages/Water";
 import JournalEntry from "./pages/JournalEntry";
 import ReadingLog from "./pages/ReadingLog";
 import StudyLog from "./pages/StudyLog";
+import ShareData from "./pages/ShareData";
 
 const App = () => {
   return (
@@ -52,6 +53,8 @@ const App = () => {
           <Route path="/journal entry" element={<JournalEntry />} />
           <Route path="/reading" element={<ReadingLog />} />
           <Route path="/study" element={<StudyLog />} />
+          <Route path="/sharedata" element={<ShareData />} />
+
         </Routes>
       </AuthContextProvider>
     </div>
