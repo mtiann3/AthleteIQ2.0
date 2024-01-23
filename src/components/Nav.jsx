@@ -76,6 +76,17 @@ const Nav = () => {
                 Workout
               </Link>
             </li>
+            <li>
+              <Link
+                to="/calendar"
+                className={`block px-4 py-2 font-bold shadow-lg  bg-blue-950 hover:bg-blue-900 "  ${
+                  location.pathname === "/calendar" && "text-red-900"
+                }`}
+                onClick={turnOffDropdown}
+              >
+                Calendar
+              </Link>
+            </li>
 
             {/* Dropdown */}
             <li className="relative group" onClick={toggleDropdown}>
