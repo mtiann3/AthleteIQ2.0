@@ -25,6 +25,7 @@ import ShareData from "./pages/ShareData";
 import SleepLog from "./pages/SleepLog";
 import WorkSchedule from "./pages/WorkSchedule";
 import Calendar from "./pages/Calendar";
+import SchoolSchedule from "./pages/SchoolSchedule";
 
 const App = () => {
   return (
@@ -60,6 +61,7 @@ const App = () => {
           <Route path="/sleep" element={<SleepLog />} />
           <Route path="/job" element={<WorkSchedule />} />
           <Route path="/calendar" element={<Calendar />} />
+          <Route path="/school" element={<SchoolSchedule />} />
 
         </Routes>
       </AuthContextProvider>
