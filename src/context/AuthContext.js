@@ -53,6 +53,8 @@ export const AuthContextProvider = ({ children }) => {
             name: currentUser.displayName,
             email: currentUser.email,
             todos: [], // Initialize todos as an empty array
+            stats: [], // Initialize todos as an empty array
+
           });
 
           console.log("Document written with ID: ", docRef.id);
