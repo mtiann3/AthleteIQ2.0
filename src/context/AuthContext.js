@@ -52,8 +52,8 @@ export const AuthContextProvider = ({ children }) => {
           const docRef = await setDoc(doc(db, "users", currentUser.uid), {
             name: currentUser.displayName,
             email: currentUser.email,
-            todos: [], // Initialize todos as an empty array
-            stats: [], // Initialize todos as an empty array
+            calendar: [], // Initialize todos as an empty array
+            profile: [], // Initialize todos as an empty array
 
           });
 

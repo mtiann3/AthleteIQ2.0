@@ -21,7 +21,7 @@ const Profile = () => {
         const docSnap = await getDoc(docRef);
   
         if (docSnap.exists()) {
-          const userDataFromFirestore = docSnap.data();
+          const userDataFromFirestore = docSnap.data().profile;
           
           // Check if 'height' property is present, if not, set default values
           if (!userDataFromFirestore.height) {
@@ -41,7 +41,11 @@ const Profile = () => {
   const handleUpdate = async () => {
     try {
       const docRef = doc(db, "users", user.uid);
-      await updateDoc(docRef, userData);
+
+      await updateDoc(docRef, {
+        profile: userData
+      });
+      console.log((await getDoc(docRef)).data())
       console.log("Document successfully updated!");
     } catch (error) {
       console.error("Error updating document:", error);
